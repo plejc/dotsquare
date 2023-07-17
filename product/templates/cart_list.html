@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+<div class="container">
+<h2>Cart list </h2> 
+</div>
+  <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Price</th>
+            <th scope="col">stock</th>
+            <th scope="col">Category</th>
+            <th scope="col">Is added</th>
+            <th scope="col">Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+          <tr>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td><img src="{{ product.image.url }}" style="height: 50px;width: 50px;"/></td>
+            <td>{{product.price}}</td>
+            <td>{{product.stock}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.is_added}}</td>
+            <td><a href="{% url 'product_detail' product.id%}">Detail</a></td>
+          </tr>
+        </tbody>
+            {% endfor %}
+      </table>
+
+{% endblock %}

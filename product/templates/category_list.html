@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+<div class="container">
+<h2>Category list </h2>
+<div><a href="{% url 'add_category' %}">add category</a></div> 
+</div>
+<table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Category Name</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for cat in category %}
+    <tr>
+      <td>{{cat.id}}</td>
+      <td>{{cat.name}}</td>
+    </tr>
+  </tbody>
+      {% endfor %}
+</table>
+
+{% endblock %}

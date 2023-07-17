@@ -1,0 +1,31 @@
+{% extends 'index.html'%}
+
+{% block content %}
+<div class="container">
+<h2>Tag list:</h2>
+    <div><a href="{% url 'add_tag' %}">add tag</a></div> 
+    {% comment %} {% for tag in tags %}
+        {{tag.id}}
+        {{tag.product.all}}
+    {% endfor %} {% endcomment %}
+    <table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Tag</th>
+      <th scope="col">Products</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for tag in tags %}
+    <tr>
+      <td>{{tag.id}}</td>
+      <td>{{tag.tag_name}}</td>
+      <td>{{tag.product.all}}</td>
+    </tr>
+  </tbody>
+      {% endfor %}
+</table>
+</div>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container">
+<h2>Product details</h2>
+
+<h1>{{ object.name }}</h1>
+<p>{{ object.price }}</p>
+<p><img src="{{ object.image.url }}" style=height=50px; width=50px/></p>
+<p>{{object.is_added}}</p>
+</div>
+{% endblock content%}
